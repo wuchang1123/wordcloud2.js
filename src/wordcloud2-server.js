@@ -543,18 +543,6 @@
                       (bounds[1] - bounds[3] + 1) * g,
                       (bounds[2] - bounds[0] + 1) * g);
       }
-      console.log({
-        mu: mu,
-        occupied: occupied,
-        bounds: bounds,
-        gw: cgw,
-        gh: cgh,
-        fillTextOffsetX: fillTextOffsetX,
-        fillTextOffsetY: fillTextOffsetY,
-        fillTextWidth: fw,
-        fillTextHeight: fh,
-        fontSize: fontSize
-      });
 
       // Return information needed to create the text on the real canvas
       return {
@@ -912,17 +900,18 @@
         if (i >= settings.list.length) {
           stoppingFunction(timer);
           settings.done();
-          return;
-        }
+          //return;
+      } else {
         escapeTime = (new Date()).getTime();
         var drawn = putWord(settings.list[i]);
         if (exceedTime()) {
           stoppingFunction(timer);
           settings.abort();
-          return;
+        } else {
+            i++;
+            timer = loopingFunction(loop, settings.wait);
         }
-        i++;
-        timer = loopingFunction(loop, settings.wait);
+      }
       }, settings.wait);
     };
 

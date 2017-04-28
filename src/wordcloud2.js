@@ -480,7 +480,7 @@ if (!window.clearImmediate) {
       }
 
       if (rotationSteps > 0) {
-        return minRotation + 
+        return minRotation +
           (1 / Math.floor((Math.random() * rotationSteps) + 1)) *
           rotationRange;
       }
@@ -1103,13 +1103,8 @@ if (!window.clearImmediate) {
 
       i = 0;
       var loopingFunction, stoppingFunction;
-      if (settings.wait !== 0) {
-        loopingFunction = window.setTimeout;
-        stoppingFunction = window.clearTimeout;
-      } else {
-        loopingFunction = window.setImmediate;
-        stoppingFunction = window.clearImmediate;
-      }
+      loopingFunction = window.setImmediate;
+      stoppingFunction = window.clearImmediate;
 
       var addEventListener = function addEventListener(type, listener) {
         elements.forEach(function(el) {

@@ -31,5 +31,9 @@
     "grunt-contrib-connect": "^0.7.1",
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-shell": "^0.6.4"
+  },
+  "dependencies": {
+    "express": "^4.15.2",
+    "canvas": "git+https://github.com/Automattic/node-canvas.git"
   }
 }
